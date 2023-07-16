@@ -1,3 +1,6 @@
+# les commandes d'installation du projet, sont regrouper dans ce makefile
+
+# initialisation de l'environnement
 install:
 	@make build
 	@make up
@@ -7,6 +10,8 @@ install:
 	docker compose exec app php artisan storage:link
 	docker compose exec app chmod -R 777 storage bootstrap/cache
 	@make fresh
+
+# Creation du projet laravel
 create-project:
 	mkdir -p src
 	docker compose build
@@ -16,6 +21,8 @@ create-project:
 	docker compose exec app php artisan storage:link
 	docker compose exec app chmod -R 777 storage bootstrap/cache
 	@make fresh
+
+# Demarage et gestion des containers
 up:
 	docker compose up -d
 build:
